@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>florealchezzohra.com</title>
+  <link href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Dancing+Script:wght@400;700&family=Moon+Dance&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="test.css">
+ 
+
+</head>
+
+<body>
+  <nav class="navigation">
+    <div class="logo">Floréal By Zohra</div>
+    <div class="nav-links">
+      <a href="#accueil">Accueil</a>
+      <a href="#produits">Nos Produits</a>
+      <a href="#services">Nos Services</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="cart-icon" id="cart-icon">
+      🛒 <span class="cart-count" id="cart-count">0</span>
+    </div>
+  </nav>
+
+
+  <div class="cart-panel" id="cart-panel">
+    <div class="cart-header">
+      <h2>Votre Panier</h2>
+      <button class="close-cart" id="close-cart">×</button>
+    </div>
+    <div id="cart-items"></div>
+    <div class="cart-total">Total: <span id="cart-total">0 DH</span></div>
+  </div>
+
+
+  <section id="accueil">
+    <header>
+      <h1>🌿 Bienvenue dans l'Univers <br> Verdoyant de Floréal 🌿</h1>
+      <p>
+        Un monde où chaque plante a son histoire à raconter...<br>
+        Que vous rêviez d'éclairer votre salon, de parfumer votre quotidien ou simplement de créer un havre de paix, <strong>Floréal</strong> est là pour vous. Plongez dans un univers végétal où chaque feuille, chaque pétale, est une invitation à la sérénité.<br>
+        Ma collection, à la fois fugace et intemporelle, incarne la beauté naturelle et apaisante de la vie.<br>
+        Offrez-vous un instant de nature. Laissez vos plantes vous parler, elles savent exactament ce que vous avez besoin d'entendre...
+      </p>
+      <img src="sho.jpg" alt="store image">
+    </header>
+  </section>
+
+
+  <section id="apropos">
+    <h2 class="section-title">À Propos de Floréal</h2>
+    <div style="display: flex; align-items: center; gap: 40px;">
+      <div>
+        <p>Floréal est née d'une passion pour la nature et le bien-être qu'elle procure. Fondée en 2020, notre boutique s'engage à vous offrir les plus belles plantes, soigneusement sélectionnées pour leur qualité et leur beauté.</p>
+        <p>Nous croyons que chaque plante a le pouvoir de transformer un espace et d'améliorer notre quotidien. Notre équipe de passionnés est toujours disponible pour vous conseiller et vous aider à trouver la plante parfaite pour votre intérieur ou votre jardin.</p>
+  </section>
+   
+
+
+  <section id="produits">
+    <h2 class="section-title">Nos Produits</h2>
+    <section id="filtres">
+      <label for="filter-category">Catégorie:</label>
+      <select id="filter-category">
+        <option value="Toutes">Toutes</option>
+        <option value="Arbres">Arbres</option>
+        <option value="Fleurs">Fleurs</option>
+        <option value="Plantes Vertes">Plantes Vertes</option>
+        <option value="Cactus">Cactus</option>
+        <option value="Plantes Aromatiques">Plantes Aromatiques</option>
+        <option value="Grimpantes">Grimpantes</option>
+      </select>
+
+      <label for="min-price">Prix min (DH):</label>
+      <input type="number" id="min-price" value="0" min="0">
+
+      <label for="max-price">Prix max (DH):</label>
+      <input type="number" id="max-price" value="1000" min="0">
+
+      <button id="apply-filters">Filtrer</button>
+    </section>
+    <div id="contenu-produits"></div>
+  </section>
+
+
+  <section id="services">
+    <h2 class="section-title">Nos Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Conseils Personnalisés</h3>
+        <p>Nos experts vous accompagnent dans le choix de vos plantes selon vos besoins, votre espace et votre niveau d'expérience.</p>
+      </div>
+      <div class="service-card">
+        <h3>Livraison à Domicile</h3>
+        <p>Nous livrons vos plantes avec soin directement chez vous, partout dans la ville, avec des emballages protecteurs.</p>
+      </div>
+      <div class="service-card">
+        <h3>Ateliers de Jardinage</h3>
+        <p>Apprenez à entretenir vos plantes grâce à nos ateliers mensuels animés par des professionnels passionnés.</p>
+      </div>
+      <div class="service-card">
+        <h3>Décoration d'Intérieur</h3>
+        <p>Notre équipe peut vous aider à aménager votre espace avec des plantes pour créer une ambiance unique et harmonieuse.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="contact">
+    <h2 class="section-title">Contactez-nous</h2>
+    <div class="contact-info">
+      <div class="contact-method">
+        <h3>Adresse</h3>
+        <p>Quartier Chebar Rue Ibn Rochd<br>Ville Castillejos(Fnideq)</p>
+      </div>
+      <div class="contact-method">
+        <h3>Téléphone</h3>
+        <p>+212 6 40 20 37 29</p>
+      </div>
+      <div class="contact-method">
+        <h3>Email</h3>
+        <p>zohraby44@floreal.com</p>
+      </div>
+      <div class="contact-method">
+        <h3>Horaires</h3>
+        <p>Lundi - Vendredi: 9h - 19h<br>Samedi: 10h - 13h</p>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>&copy; 2025 Floréal </p>
+  </footer>
+
+
+
+  
+  <script>
+    class Produit {
+      constructor(nom, description, prix, image, categorie) {
+        this.nom = nom;
+        this.description = description;
+        this.prix = prix;
+        this.image = image;
+        this.categorie = categorie;
+      }
+    }
+
+
+    let panier = [];
+    let totalPanier = 0;
+
+  
+    function updateCartCount() {
+      document.getElementById('cart-count').textContent = panier.length;
+    }
+
+    function updateCartPanel() {
+      const cartItems = document.getElementById('cart-items'); //initiation de cart-items dans html
+      cartItems.innerHTML = '';
+      
+      let total = 0;
+      
+      panier.forEach(item => {
+        const itemElement = document.createElement('div');
+        itemElement.className = 'cart-item';
+        
+        const prixNum = Number(item.prix.replace(' DH', ''));
+        total += prixNum;
+        
+        itemElement.innerHTML = `
+          <div>
+            <strong>${item.nom}</strong>
+            <div>${item.prix}</div>
+          </div>
+          <div>
+            <button class="remove-item" data-nom="${item.nom}">×</button>
+          </div>
+        `;
+        
+        cartItems.appendChild(itemElement);
+      });
+      
+      document.getElementById('cart-total').textContent = `${total} DH`;
+      
+      // Ajouter les événements aux boutons de suppression
+      document.querySelectorAll('.remove-item').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const nomProduit = this.getAttribute('data-nom');
+          panier = panier.filter(item => item.nom !== nomProduit);
+          updateCartPanel();
+          updateCartCount();
+        });
+      });
+    }
+
+    // Gestion du panier
+    document.getElementById('cart-icon').addEventListener('click', function() {
+      document.getElementById('cart-panel').classList.add('active');
+    });
+
+    document.getElementById('close-cart').addEventListener('click', function() {
+      document.getElementById('cart-panel').classList.remove('active');
+    });
+
+    // Données des produits
+    const categories = {
+      "Arbres": [
+        new Produit(
+          "Olivier Nain",
+          "Petit arbre méditerranéen à feuilles argentées.<br>Utilisation: pour la décoration de terrasse ou jardin.<br>Pourquoi l'acheter ? Rustique, facile à entretenir, donne un look provençal élégant.",
+          "200 DH",
+          "oliviernain.jpg",
+          "Arbres"
+        ),
+        new Produit(
+          "Érable du Japon",
+          "Arbre ornemental aux feuilles rouges ou orangées.<br>Utilisation: jardin zen ou décoratif.<br>Pourquoi l'acheter ? Magnifique en automne, idéal pour créer une ambiance apaisante.",
+          "400 DH",
+          "érableJapon.jpg",
+          "Arbres"
+        ),
+        new Produit(
+          "Citronnier en Pot",
+          "Arbre fruitier qui produit de vrais citrons parfumés.<br>Utilisation: décoration + récolte de fruits à la maison.<br>Pourquoi l'acheter ? À la fois beau et utile, parfum agréable.",
+          "300 DH",
+          "Citronnier.jpg",
+          "Arbres"
+        ),
+        new Produit(
+          "Palmier Nain",
+          "Petit palmier tropical adapté aux intérieurs.<br>Utilisation: plante d'intérieur ou balcon.<br>Pourquoi l'acheter ? Touche exotique, facile à vivre et très décoratif.",
+          "250 DH",
+          "Palmier Nain.jpg",
+          "Arbres"
+        )
+      ],
+
+      "Fleurs": [
+        new Produit(
+          "Tulipes Multicolores",
+          "Fleurs colorées à bulbe, emblématiques du printemps.<br>Utilisation: massifs, bordures, bouquets.<br>Pourquoi l'acheter ? Apporte gaieté, facile à planter, très décoratif.",
+          "200 DH",
+          "Tulipes Multicolores.jpg",
+          "Fleurs"
+        ),
+        new Produit(
+          "Roses Blanches",
+          "Fleurs classiques et élégantes.<br>Utilisation: jardin, décoration florale, bouquet romantique.<br>Pourquoi l'acheter ? Symbole de pureté, très parfumée, effet chic garanti.",
+          "50 DH",
+          "Roses Blanches.jpg",
+          "Fleurs"
+        ),
+        new Produit(
+          "Pivoines Roses",
+          "Grosses fleurs rondes à pétales serrés.<br>Utilisation: jardin fleuri, bouquets de fête.<br>Pourquoi l'acheter ? Très appréciée pour sa beauté et son parfum délicat.",
+          "100 DH",
+          "Pivoines Roses.jpg",
+          "Fleurs"
+        ),
+        new Produit(
+          "Géranium Rouge",
+          "Plante fleurie robuste.<br>Utilisation: balcon, jardinières, rebords de fenêtres.<br>Pourquoi l'acheter ? Fleurit longtemps, peu exigeante, attire les papillons.",
+          "60 DH",
+          "Géranium Rouge.jpg",
+          "Fleurs"
+        )
+      ],
+
+      "Plantes Vertes": [
+        new Produit(
+          "Monstera Deliciosa",
+          "Plante tropicale avec grandes feuilles découpées.<br>Utilisation: déco intérieure, purifie l'air.<br>Pourquoi l'acheter ? Moderne, facile à entretenir, très tendance.",
+          "150 DH",
+          "Monstera Deliciosa.jpg",
+          "Plantes Vertes"
+        ),
+        new Produit(
+          "Fougère de Boston",
+          "Plante au feuillage léger et retombant.<br>Utilisation: suspension intérieure, salle de bain.<br>Pourquoi l'acheter ? Apporte fraîcheur, adore l'humidité, feuillage élégant.",
+          "80 DH",
+          "Fougère de Boston.jpg",
+          "Plantes Vertes"
+        ),
+        new Produit(
+          "Calathea",
+          "Plante aux feuilles décoratives avec motifs graphiques.<br>Utilisation: plante de salon ou bureau.<br>Pourquoi l'acheter ? Feuilles graphiques, se replie la nuit, fort impact visuel.",
+          "120 DH",
+          "Calathea.jpg",
+          "Plantes Vertes"
+        ),
+        new Produit(
+          "Zamioculcas (ZZ)",
+          "Plante grasse au feuillage brillant.<br>Utilisation: idéale pour débutants.<br>Pourquoi l'acheter ? Résistante à tout, belle et minimaliste.",
+          "100 DH",
+          "Zamioculcas.jpg",
+          "Plantes Vertes"
+        )
+      ],
+
+      "Cactus": [
+        new Produit(
+          "Cactus Bola",
+          "Petit cactus rond couvert d'épines douces.<br>Utilisation: déco bureau ou étagère.<br>Pourquoi l'acheter ? Trop mignon, facile à vivre, zéro arrosage.",
+          "30 DH",
+          "Cactus Bola.jpg",
+          "Cactus"
+        ),
+        new Produit(
+          "Cactus Cierge",
+          "Grand cactus droit type désert.<br>Utilisation: déco intérieure moderne.<br>Pourquoi l'acheter ? Silhouette sculpturale, ambiance western garantie.",
+          "80 DH",
+          "Cactus Cierge.jpg",
+          "Cactus"
+        ),
+        new Produit(
+          "Cactus Mickey",
+          "Cactus plat en forme d'oreilles.<br>Utilisation: original, parfait en pot déco.<br>Pourquoi l'acheter ? Forme rigolote, facile à entretenir.",
+          "60 DH",
+          "Cactus Mickey.jpg",
+          "Cactus"
+        ),
+        new Produit(
+          "Cactus à Fleurs",
+          "Cactus qui produit de petites fleurs colorées.<br>Utilisation: déco florale longue durée.<br>Pourquoi l'acheter ? Fleurs étonnantes, entretien minimal.",
+          "50 DH",
+          "Cactus à Fleurs.jpg",
+          "Cactus"
+        )
+      ],
+
+      "Plantes Aromatiques": [
+        new Produit(
+          "Lavande de Provence",
+          "Plante parfumée aux fleurs violettes.<br>Utilisation: anti-moustique, déco, infusions.<br>Pourquoi l'acheter ? Parfum naturel, apaisant et décoratif.",
+          "50 DH",
+          "Lavande de Provence.jpg",
+          "Plantes Aromatiques"
+        ),
+        new Produit(
+          "Menthe Fraîche",
+          "Feuilles vertes très parfumées.<br>Utilisation: thé, cocktails, cuisine.<br>Pourquoi l'acheter ? Très facile à cultiver, utile au quotidien.",
+          "30 DH",
+          "Menthe.jpg",
+          "Plantes Aromatiques"
+        ),
+        new Produit(
+          "Basilic Doux",
+          "Plante verte pour plats et sauces méditerranéennes.<br>Utilisation: cuisine méditerranéenne.<br>Pourquoi l'acheter ? Toujours utile, parfum délicieux, pousse vite.",
+          "60 DH",
+          "Basilic.jpg",
+          "Plantes Aromatiques"
+        ),
+        new Produit(
+          "Romarin",
+          "Plante vivace au feuillage fin et aromatique.<br>Utilisation: cuisine, infusion, parfum.<br>Pourquoi l'acheter ? Résistant, utile et très parfumé.",
+          "40 DH",
+          "Romarin.jpg",
+          "Plantes Aromatiques"
+        )
+      ],
+
+      "Grimpantes": [
+        new Produit(
+          "Jasmin Étoilé",
+          "Fleurs blanches parfumées en forme d'étoile.<br>Utilisation: pergola, mur, clôture.<br>Pourquoi l'acheter ? Parfum de rêve, pousse vite, très romantique.",
+          "100 DH",
+          "Jasmin.jpg",
+          "Grimpantes"
+        ),
+        new Produit(
+          "Lierre Anglais",
+          "Plante grimpante à feuilles persistantes.<br>Utilisation: couvre-mur, haies, balcons.<br>Pourquoi l'acheter ? Résistant toute l'année, aspect naturel et sauvage.",
+          "60 DH",
+          "Lierre Anglais.jpg",
+          "Grimpantes"
+        ),
+        new Produit(
+          "Clématite Violette",
+          "Grimpante à grandes fleurs colorées.<br>Utilisation: murs, tonnelles.<br>Pourquoi l'acheter ? Floraison spectaculaire, très décorative.",
+          "120 DH",
+          "Clématite.jpg",
+          "Grimpantes"
+        ),
+        new Produit(
+          "Passiflore",
+          "Grimpante aux fleurs exotiques et fruits.<br>Utilisation: mur fleuri, déco tropicale.<br>Pourquoi l'acheter ? Fleur unique, attire les abeilles, ambiance tropicale.",
+          "100 DH",
+          "Passiflore.jpg",
+          "Grimpantes"
+        )
+      ]
+    };
+
+
+    //FILTRAGE DES PRODUITS//
+    function filterProducts(category, minPrice, maxPrice) {
+      let list = [];
+
+      if (category === 'Toutes') {
+        for (const cat in categories) {
+          list = list.concat(categories[cat]);
+        }
+      } else {
+        list = categories[category].slice();
+      }
+
+      return list.filter(prod => {
+        const prixNum = Number(prod.prix.replace(' DH', ''));
+        return prixNum >= minPrice && prixNum <= maxPrice;
+      });
+    }
+
+    function afficherProduits(produitsList) {
+      const conteneur = document.getElementById('contenu-produits');
+      conteneur.innerHTML = '';
+
+      Object.keys(categories).forEach(categorie => {
+        const produitsCat = produitsList.filter(p => p.categorie === categorie);
+        if (produitsCat.length === 0) return;
+
+        const section = document.createElement('section');
+        section.innerHTML = `<h2>${categorie}</h2>`;
+
+        const grille = document.createElement('div');
+        grille.className = 'grille-produits';
+
+        produitsCat.forEach(produit => {
+          const card = document.createElement('div');
+          card.className = 'carte-produit';
+          card.innerHTML = `
+            <img src="images/${produit.image}" alt="${produit.nom}">
+            <h3>${produit.nom}</h3>
+            <button class="btn-description">Voir description</button>
+            <div class="description-cachee">${produit.description}</div>
+            <button class="btn-prix" data-nom="${produit.nom}" data-prix="${produit.prix}">${produit.prix} - Acheter</button>
+          `;
+          grille.appendChild(card);
+        });
+
+        section.appendChild(grille);
+        conteneur.appendChild(section);
+      });
+
+      // Réactivation des événements
+      document.querySelectorAll('.btn-description').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const desc = this.nextElementSibling;
+          desc.style.display = desc.style.display === 'block' ? 'none' : 'block';
+        });
+      });
+
+      document.querySelectorAll('.btn-prix').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const nom = this.getAttribute('data-nom');
+          const prix = this.getAttribute('data-prix');
+          
+          // Trouver le produit complet dans les catégories
+          let produitTrouve = null;
+          for (const cat in categories) {
+            const produit = categories[cat].find(p => p.nom === nom);
+            if (produit) {
+              produitTrouve = produit;
+              break;
+            }
+          }
+          
+          if (produitTrouve) {
+            panier.push(produitTrouve);
+            updateCartCount();
+            updateCartPanel();
+            
+            // Afficher le panier
+            document.getElementById('cart-panel').classList.add('active');
+          }
+        });
+      });
+    }
+
+    // Initialisation et liaison des filtres
+    window.onload = () => {
+      // Affiche tous les produits au départ
+      afficherProduits(filterProducts('Toutes', 0, Infinity));
+
+      // Gestion des filtres
+      document.getElementById('apply-filters').addEventListener('click', () => {
+        const cat = document.getElementById('filter-category').value;
+        const min = parseInt(document.getElementById('min-price').value, 10) || 0;
+        const max = parseInt(document.getElementById('max-price').value, 10) || Infinity;
+
+        const resultats = filterProducts(cat, min, max);
+        afficherProduits(resultats);
+      });
+      
+      // Initialiser le compteur du panier
+      updateCartCount();
+    };
+  </script>
+</body>
+</html>
