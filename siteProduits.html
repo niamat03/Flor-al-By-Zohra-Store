@@ -18,13 +18,14 @@
       <a href="#produits">Nos Produits</a>
       <a href="#services">Nos Services</a>
       <a href="#contact">Contact</a>
+      <a href="admin.html" class="admin-toggle">Admin</a>
+
     </div>
     <div class="cart-icon" id="cart-icon">
       🛒 <span class="cart-count" id="cart-count">0</span>
     </div>
   </nav>
-
-
+  
   <div class="cart-panel" id="cart-panel">
     <div class="cart-header">
       <h2>Votre Panier</h2>
@@ -498,6 +499,73 @@
       // Initialiser le compteur du panier
       updateCartCount();
     };
+  // Toggle de la barre d’administration
+  document.getElementById('adminToggle').addEventListener('click', () => {
+      document.getElementById('adminBar').classList.toggle('active');
+    });
+
+    // Utilitaire pour rafraîchir les produits (si vous utilisez filterProducts & afficherProduits)
+    function refreshProducts() {
+      const cat = document.getElementById('filter-category')?.value || 'Toutes';
+      const min = parseInt(document.getElementById('min-price')?.value, 10) || 0;
+      const max = parseInt(document.getElementById('max-price')?.value, 10) || Infinity;
+      afficherProduits(filterProducts(cat, min, max));
+    }
+
+    // Ajouter un produit
+    document.getElementById('addProduct').addEventListener('click', () => {
+      const nom       = prompt("Nom du nouveau produit ?");
+      if (!nom) return;
+      const desc      = prompt("Description (HTML autorisé) ?");
+      const prix      = prompt("Prix (ex : '100 DH') ?");
+      const image     = prompt("Nom de l’image (fichier .jpg) ?");
+      const categorie = prompt("Catégorie (ex : Arbres, Fleurs, etc.) ?");
+      const nouv = new Produit(nom, desc, prix, image, categorie);
+      if (!categories[categorie]) categories[categorie] = [];
+      categories[categorie].push(nouv);
+      refreshProducts();
+    });
+
+    // Modifier un produit
+    document.getElementById('editProduct').addEventListener('click', () => {
+      const search = prompt("Nom du produit à modifier ?");
+      if (!search) return;
+      let found = null, oldCat;
+      for (const cat in categories) {
+        const idx = categories[cat].findIndex(p => p.nom === search);
+        if (idx !== -1) {
+          found = categories[cat].splice(idx,1)[0];
+          oldCat = cat;
+          break;
+        }
+      }
+      if (!found) return alert("Produit non trouvé !");
+      const nom2   = prompt("Nouveau nom ?", found.nom)            || found.nom;
+      const desc2  = prompt("Nouvelle description ?", found.description) || found.description;
+      const prix2  = prompt("Nouveau prix ?", found.prix)          || found.prix;
+      const img2   = prompt("Nouvelle image ?", found.image)       || found.image;
+      const cat2   = prompt("Nouvelle catégorie ?", found.categorie)|| found.categorie;
+      const upd = new Produit(nom2, desc2, prix2, img2, cat2);
+      if (!categories[cat2]) categories[cat2] = [];
+      categories[cat2].push(upd);
+      refreshProducts();
+    });
+
+    // Supprimer un produit
+    document.getElementById('deleteProduct').addEventListener('click', () => {
+      const name = prompt("Nom du produit à supprimer ?");
+      if (!name) return;
+      let removed = false;
+      for (const cat in categories) {
+        const before = categories[cat].length;
+        categories[cat] = categories[cat].filter(p => p.nom !== name);
+        if (categories[cat].length < before) { removed = true; break; }
+      }
+      if (!removed) return alert("Produit introuvable.");
+      refreshProducts();
+    });
+    const produits = JSON.parse(localStorage.getItem('produits')) || [];
+
   </script>
 </body>
 </html>

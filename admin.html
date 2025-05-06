@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin - Floréal By Zohra</title>
+  <link href="https://fonts.googleapis.com/css2?family=Charm&family=Dancing+Script&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Charm', cursive;
+      background-color: #f9f5eb;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #3a6a4c;
+      text-align: center;
+    }
+
+    .form-produit, .liste-produits {
+      background: #ffefcc;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      margin-top: 15px;
+      background-color: #3a6a4c;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #2a513a;
+    }
+
+    .produit {
+      border-bottom: 1px solid #ccc;
+      padding: 10px 0;
+    }
+
+    .actions {
+      margin-top: 10px;
+    }
+
+    .actions button {
+      margin-right: 10px;
+      background-color: #cd96c3;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Gestion des Produits</h1>
+
+  <div class="form-produit">
+    <h2>Ajouter un Produit</h2>
+    <input type="hidden" id="produitIndex" value="">
+    <label>Nom:</label>
+    <input type="text" id="nom">
+    <label>Prix:</label>
+    <input type="number" id="prix">
+    <label>Catégorie:</label>
+    <input type="text" id="categorie">
+    <label>Description:</label>
+    <textarea id="description"></textarea>
+    <label>URL de l'image:</label>
+    <input type="text" id="image">
+
+    <button onclick="ajouterOuModifierProduit()">Enregistrer</button>
+  </div>
+
+  <div class="liste-produits">
+    <h2>Produits existants</h2>
+    <div id="produits"></div>
+  </div>
+
+  <script>
+    let produits = JSON.parse(localStorage.getItem('produits')) || [];
+
+    function afficherProduits() {
+      const div = document.getElementById('produits');
+      div.innerHTML = '';
+      produits.forEach((p, index) => {
+        div.innerHTML += `
+          <div class="produit">
+            <strong>${p.nom}</strong> - ${p.prix} MAD<br>
+            <em>${p.categorie}</em><br>
+            <small>${p.description}</small><br>
+            <img src="${p.image}" width="100" /><br>
+            <div class="actions">
+              <button onclick="modifierProduit(${index})">Modifier</button>
+              <button onclick="supprimerProduit(${index})">Supprimer</button>
+            </div>
+          </div>
+        `;
+      });
+    }
+
+    function ajouterOuModifierProduit() {
+      const nom = document.getElementById('nom').value;
+      const prix = parseFloat(document.getElementById('prix').value);
+      const categorie = document.getElementById('categorie').value;
+      const description = document.getElementById('description').value;
+      const image = document.getElementById('image').value;
+      const index = document.getElementById('produitIndex').value;
+
+      if (nom && !isNaN(prix)) {
+        const produit = { nom, prix, categorie, description, image };
+
+        if (index === '') {
+          produits.push(produit);
+        } else {
+          produits[index] = produit;
+          document.getElementById('produitIndex').value = '';
+        }
+
+        localStorage.setItem('produits', JSON.stringify(produits));
+        afficherProduits();
+        resetForm();
+      } else {
+        alert("Nom et prix obligatoires !");
+      }
+    }
+
+    function modifierProduit(index) {
+      const p = produits[index];
+      document.getElementById('nom').value = p.nom;
+      document.getElementById('prix').value = p.prix;
+      document.getElementById('categorie').value = p.categorie;
+      document.getElementById('description').value = p.description;
+      document.getElementById('image').value = p.image;
+      document.getElementById('produitIndex').value = index;
+    }
+
+    function supprimerProduit(index) {
+      if (confirm("Supprimer ce produit ?")) {
+        produits.splice(index, 1);
+        localStorage.setItem('produits', JSON.stringify(produits));
+        afficherProduits();
+      }
+    }
+
+    function resetForm() {
+      document.getElementById('nom').value = '';
+      document.getElementById('prix').value = '';
+      document.getElementById('categorie').value = '';
+      document.getElementById('description').value = '';
+      document.getElementById('image').value = '';
+      document.getElementById('produitIndex').value = '';
+    }
+
+    afficherProduits();
+  </script>
+
+</body>
+</html>

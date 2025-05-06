@@ -315,3 +315,52 @@ footer {
   align-items: center; /* Centre verticalement */
   min-height: 100px; /* Hauteur minimale pour mieux voir l'effet */
 }  
+
+/* Bouton Admin dans la nav */
+.admin-toggle {
+  background-color: #cd96c3;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Charm', cursive;
+  font-size: 1em;
+  margin-left: 20px;
+  transition: background-color 0.3s;
+}
+.admin-toggle:hover {
+  background-color: #976098;
+}
+
+/* Barre Admin (Ajouter / Modifier / Supprimer) */
+.admin-bar {
+  display: none;
+  position: fixed;
+  top: 60px;              /* juste sous la nav */
+  right: 20px;
+  background: #f9f5eb;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  padding: 10px;
+  border-radius: 8px;
+  gap: 10px;
+  z-index: 1001;
+  /* on passe à flex pour pouvoir espacer facilement */
+  display: none;
+  flex-direction: column;
+}
+
+
+#adminBar button {
+  background-color: #3a6a4c;
+  color: white;
+  border: none;
+  padding: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Charm', cursive;
+  transition: background-color 0.3s;
+}
+#adminBar button:hover {
+  background-color: #2a513a;
+}
